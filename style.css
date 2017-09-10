@@ -1,3 +1,11 @@
 body {
-    font-family: sans-serif;
+	font-family: "calibri";
+    background: #efefef;
+    padding: 32px;
+    padding-top: 16px;
+    color: #333;
+}
+h1,h3 {
+	text-align: center;
+	color: #787878;
 }
