@@ -66,23 +66,21 @@ window.fbAsyncInit = function() {
 // Here we run a very simple test of the Graph API after login is
 // successful.  See statusChangeCallback() for when this call is made.
 function onLogin() {
-  var nameResponse;
-  var friendResponse;
-
-  FB.api('/me', function(response) {
+  var nameResponse = {};
+  var friendResponse = {};
+  FB.api('me/', function(response) {
     document.getElementById('status').innerHTML =
       '\nThanks for logging in, ' + response.name + '!';
+    console.log(response)
     nameResponse = response;
-
-    //DEFINE USER FRIENDSSSSSSSSZZZZZ
-
   });
-
-  FB.api('/me/friends', function(response) {
+  console.log(nameResponse)
+  FB.api('me/friends', function(response) {
+    console.log(response)
     friendResponse = response;
   });
-
-  if (!checkIfUserExists(nameResponse.id)) {
+  console.log(friendResponse)
+  if (checkIfUserExists(nameResponse.id) === false) {
     var latitude;
     var longitude;
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -93,6 +91,7 @@ function onLogin() {
       friendResponse.friendsList, latitude, longitude);
   }
 };
+
 //FIREBASE
 
 var database = firebase.database();
