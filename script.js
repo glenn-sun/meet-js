@@ -72,3 +72,6 @@ function testAPI() {
       'Thanks for logging in, ' + response.name + '!';
   });
 }
+
+// Get data from Firebase
+
